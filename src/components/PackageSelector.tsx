@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ArrowRight, Star, Clock, ShieldCheck, BadgePercent } from "lucide-react";
+import { Check, ArrowRight, Star, ShieldCheck, BadgePercent } from "lucide-react";
 
 interface Package {
   name: string;
@@ -110,15 +110,15 @@ export default function PackageSelector() {
   const currentPackages = packagesData[activeTab];
 
   return (
-    <section id="packages" className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="packages" className="py-24 md:py-32 bg-stone-50 relative overflow-hidden">
       {/* Background Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Section Title */}
         <div className="max-w-2xl mb-16 animate-fade-up">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
-            <BadgePercent className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
+            <BadgePercent className="w-3.5 h-3.5 text-amber-600" />
             <span>Pricing Programs</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-4">
@@ -155,7 +155,7 @@ export default function PackageSelector() {
               key={pkg.name}
               className={`relative flex flex-col p-1.5 rounded-[2rem] premium-transition ${
                 pkg.popular 
-                  ? "bg-gradient-to-br from-emerald-500/20 to-emerald-600/5 shadow-lg shadow-emerald-500/5" 
+                  ? "bg-gradient-to-br from-amber-500/20 to-amber-600/5 shadow-lg shadow-amber-500/5" 
                   : "bg-slate-200/40 border border-slate-300/20"
               }`}
               style={{ animationDelay: `${idx * 150}ms` }}
@@ -163,7 +163,7 @@ export default function PackageSelector() {
               {/* Double-Bezel Inner Core */}
               <div className="flex-1 bg-white rounded-[calc(2rem-0.375rem)] p-8 md:p-10 flex flex-col justify-between shadow-sm relative overflow-hidden">
                 {pkg.popular && (
-                  <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-4 rounded-bl-xl flex items-center gap-1">
+                  <div className="absolute top-0 right-0 bg-amber-600 text-white text-[9px] uppercase tracking-widest font-bold py-1.5 px-4 rounded-bl-xl flex items-center gap-1">
                     <Star className="w-3 h-3 fill-white" />
                     <span>Popular Selection</span>
                   </div>
@@ -171,7 +171,7 @@ export default function PackageSelector() {
 
                 <div>
                   {/* Category Label */}
-                  <span className="text-[10px] font-semibold text-emerald-600 uppercase tracking-widest block mb-2">
+                  <span className="text-[10px] font-semibold text-amber-600 uppercase tracking-widest block mb-2">
                     {pkg.tag}
                   </span>
 
@@ -193,8 +193,8 @@ export default function PackageSelector() {
                     <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">What is included</p>
                     {pkg.features.map((feat) => (
                       <div key={feat} className="flex items-start gap-3 text-sm text-slate-600">
-                        <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-emerald-600 stroke-[3]" />
+                        <div className="w-5 h-5 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-amber-600 stroke-[3]" />
                         </div>
                         <span>{feat}</span>
                       </div>
@@ -224,17 +224,17 @@ export default function PackageSelector() {
         </div>
 
         {/* Confidence Assurance Banner */}
-        <div className="mt-16 max-w-3xl mx-auto rounded-3xl p-6 bg-emerald-600/5 border border-emerald-500/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 max-w-3xl mx-auto rounded-3xl p-6 bg-amber-600/5 border border-amber-500/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-600/10 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-6 h-6 text-emerald-600" />
+            <div className="w-12 h-12 rounded-2xl bg-amber-600/10 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-amber-600" />
             </div>
             <div>
               <h4 className="text-sm font-bold text-slate-900">Need a customized learning program?</h4>
               <p className="text-xs text-slate-500 mt-0.5">Talk to our lead safety advisor to build a personal driving curriculum matching your schedule.</p>
             </div>
           </div>
-          <a href="#scheduler" className="text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-4 shrink-0 transition-colors">
+          <a href="#scheduler" className="text-xs font-bold text-amber-600 hover:text-amber-700 underline underline-offset-4 shrink-0 transition-colors">
             Consult Safety Instructor
           </a>
         </div>

@@ -95,8 +95,8 @@ export default function BookingCalendar() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Information Column (Left) */}
           <div className="lg:col-span-5 animate-fade-up">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
-              <CalendarIcon className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
+              <CalendarIcon className="w-3.5 h-3.5 text-amber-600" />
               <span>Realtime Scheduler</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
@@ -110,7 +110,7 @@ export default function BookingCalendar() {
             <div className="space-y-4">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
-                  <Car className="w-5 h-5 text-emerald-600" />
+                  <Car className="w-5 h-5 text-amber-600" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Choose Dual-Control Car</h4>
@@ -119,7 +119,7 @@ export default function BookingCalendar() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5 text-emerald-600" />
+                  <Clock className="w-5 h-5 text-amber-600" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">Flexible 24-Hour Rescheduling</h4>
@@ -133,9 +133,9 @@ export default function BookingCalendar() {
           <div className="lg:col-span-7">
             {formSubmitted ? (
               /* Success State with spring animate entry */
-              <div className="bg-slate-50 border border-emerald-500/10 rounded-[2.5rem] p-8 md:p-12 text-center diffused-shadow transition-all duration-700 animate-fade-up">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-8 h-8 text-emerald-600" />
+              <div className="bg-slate-50 border border-amber-500/10 rounded-[2.5rem] p-8 md:p-12 text-center diffused-shadow transition-all duration-700 animate-fade-up">
+                <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-8 h-8 text-amber-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Lesson Slot Requested!</h3>
                 <p className="text-sm text-slate-500 max-w-[40ch] mx-auto mb-8">
@@ -179,7 +179,7 @@ export default function BookingCalendar() {
                     setSelectedTime("");
                     setFormData({ name: "", email: "", phone: "" });
                   }}
-                  className="mt-8 text-xs font-bold text-emerald-600 hover:text-emerald-700 underline underline-offset-4"
+                  className="mt-8 text-xs font-bold text-amber-600 hover:text-amber-700 underline underline-offset-4"
                 >
                   Schedule Another Lesson
                 </button>
@@ -202,15 +202,15 @@ export default function BookingCalendar() {
                             onClick={() => setSelectedDate(index)}
                             className={`flex flex-col items-center justify-center p-3 rounded-2xl border transition-all duration-300 active:scale-[0.95] ${
                               selectedDate === index
-                                ? "bg-emerald-600 border-emerald-600 text-white shadow-md shadow-emerald-500/10"
+                                ? "bg-amber-600 border-amber-600 text-white shadow-md shadow-amber-500/10"
                                 : "bg-slate-50 border-slate-200 hover:border-slate-300 text-slate-800"
                             }`}
                           >
-                            <span className={`text-[10px] uppercase font-semibold ${selectedDate === index ? "text-emerald-100" : "text-slate-400"}`}>
+                            <span className={`text-[10px] uppercase font-semibold ${selectedDate === index ? "text-amber-100" : "text-slate-400"}`}>
                               {day.dayName}
                             </span>
                             <span className="text-base font-extrabold mt-1">{day.dayNumber}</span>
-                            <span className={`text-[9px] uppercase mt-0.5 ${selectedDate === index ? "text-emerald-200" : "text-slate-400"}`}>
+                            <span className={`text-[9px] uppercase mt-0.5 ${selectedDate === index ? "text-amber-200" : "text-slate-400"}`}>
                               {day.month}
                             </span>
                           </button>
@@ -261,12 +261,12 @@ export default function BookingCalendar() {
                           onClick={() => setTransmission("auto")}
                           className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all duration-300 active:scale-[0.97] ${
                             transmission === "auto"
-                              ? "border-emerald-600 bg-emerald-500/5 text-slate-950"
+                              ? "border-amber-600 bg-amber-500/5 text-slate-950"
                               : "border-slate-200 bg-white hover:border-slate-300 text-slate-600"
                           }`}
                         >
                           <div className={`w-5 h-5 rounded-full border flex items-center justify-center ${
-                            transmission === "auto" ? "border-emerald-600 bg-emerald-600 text-white" : "border-slate-300"
+                            transmission === "auto" ? "border-amber-600 bg-amber-600 text-white" : "border-slate-300"
                           }`}>
                             {transmission === "auto" && <div className="w-2 h-2 rounded-full bg-white" />}
                           </div>
@@ -281,12 +281,12 @@ export default function BookingCalendar() {
                           onClick={() => setTransmission("manual")}
                           className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all duration-300 active:scale-[0.97] ${
                             transmission === "manual"
-                              ? "border-emerald-600 bg-emerald-500/5 text-slate-950"
+                              ? "border-amber-600 bg-amber-500/5 text-slate-950"
                               : "border-slate-200 bg-white hover:border-slate-300 text-slate-600"
                           }`}
                         >
                           <div className={`w-5 h-5 rounded-full border flex items-center justify-center ${
-                            transmission === "manual" ? "border-emerald-600 bg-emerald-600 text-white" : "border-slate-300"
+                            transmission === "manual" ? "border-amber-600 bg-amber-600 text-white" : "border-slate-300"
                           }`}>
                             {transmission === "manual" && <div className="w-2 h-2 rounded-full bg-white" />}
                           </div>
@@ -375,7 +375,7 @@ export default function BookingCalendar() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="group w-full flex items-center justify-between p-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:bg-slate-400 disabled:cursor-not-allowed"
+                      className="group w-full flex items-center justify-between p-4 bg-amber-600 hover:bg-amber-500 text-white rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:bg-slate-400 disabled:cursor-not-allowed"
                     >
                       <span className="pl-4">{loading ? "Validating Reservation..." : "Submit Reservation"}</span>
                       <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-1 transition-all duration-300">

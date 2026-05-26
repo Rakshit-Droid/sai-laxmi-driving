@@ -115,14 +115,14 @@ export default function TheoryTest() {
   const progressPercentage = ((currentQuestion) / questions.length) * 100;
 
   return (
-    <section id="theory-prep" className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="theory-prep" className="py-24 md:py-32 bg-stone-50 relative overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-up">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
+            <BookOpen className="w-3.5 h-3.5 text-amber-600" />
             <span>Interactive Simulator</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-4">
@@ -139,9 +139,9 @@ export default function TheoryTest() {
             {showResults ? (
               /* Results Screen */
               <div className="text-center py-6 animate-fade-up flex flex-col items-center justify-center h-full">
-                <div className="w-20 h-20 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                <div className="w-20 h-20 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
                   {score >= 4 ? (
-                    <Award className="w-10 h-10 text-emerald-600" />
+                    <Award className="w-10 h-10 text-amber-600" />
                   ) : (
                     <AlertTriangle className="w-10 h-10 text-amber-500" />
                   )}
@@ -161,7 +161,7 @@ export default function TheoryTest() {
                       cy="50"
                       r="46"
                       fill="transparent"
-                      stroke={score >= 4 ? "#10b981" : "#f59e0b"}
+                      stroke={score >= 4 ? "#d97706" : "#f59e0b"}
                       strokeWidth="4"
                       strokeDasharray={`${2 * Math.PI * 46}`}
                       strokeDashoffset={`${2 * Math.PI * 46 * (1 - score / questions.length)}`}
@@ -181,7 +181,7 @@ export default function TheoryTest() {
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
                   <button
                     onClick={handleReset}
-                    className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors duration-300 active:scale-[0.98]"
+                    className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-stone-50 transition-colors duration-300 active:scale-[0.98]"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Reset Quiz</span>
@@ -210,7 +210,7 @@ export default function TheoryTest() {
                   {/* Progress Bar Container */}
                   <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden mb-8">
                     <div
-                      className="h-full bg-emerald-600 rounded-full transition-all duration-500 ease-out"
+                      className="h-full bg-amber-600 rounded-full transition-all duration-500 ease-out"
                       style={{ width: `${progressPercentage}%` }}
                     />
                   </div>
@@ -231,11 +231,11 @@ export default function TheoryTest() {
                       
                       if (answerChecked) {
                         if (isCorrect) {
-                          optionStyle = "border-emerald-600 bg-emerald-500/10 text-emerald-950";
+                          optionStyle = "border-amber-600 bg-amber-500/10 text-amber-950";
                         } else if (isSelected) {
                           optionStyle = "border-red-600 bg-red-500/10 text-red-950";
                         } else {
-                          optionStyle = "border-slate-100 bg-slate-50/50 text-slate-400 cursor-not-allowed";
+                          optionStyle = "border-slate-100 bg-stone-50/50 text-slate-400 cursor-not-allowed";
                         }
                       }
 
@@ -250,7 +250,7 @@ export default function TheoryTest() {
                           <span className="pr-4">{option}</span>
                           <div className="flex shrink-0 items-center justify-center">
                             {answerChecked && isCorrect && (
-                              <div className="w-5 h-5 rounded-full bg-emerald-600 flex items-center justify-center">
+                              <div className="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center">
                                 <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
                               </div>
                             )}
@@ -274,7 +274,7 @@ export default function TheoryTest() {
                 {/* Question Control Actions */}
                 <div className="mt-8">
                   {answerChecked && (
-                    <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl mb-6 text-xs text-slate-500 leading-relaxed animate-fade-up">
+                    <div className="p-4 bg-stone-50 border border-slate-100 rounded-2xl mb-6 text-xs text-slate-500 leading-relaxed animate-fade-up">
                       <span className="font-bold text-slate-800 block mb-1">Why this is correct:</span>
                       {questions[currentQuestion].explanation}
                     </div>
@@ -294,7 +294,7 @@ export default function TheoryTest() {
                   ) : (
                     <button
                       onClick={handleNextQuestion}
-                      className="group w-full flex items-center justify-between p-3.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full text-xs font-semibold transition-all shadow-md active:scale-[0.98]"
+                      className="group w-full flex items-center justify-between p-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-full text-xs font-semibold transition-all shadow-md active:scale-[0.98]"
                     >
                       <span className="pl-4">
                         {currentQuestion === questions.length - 1 ? "Finish and See Score" : "Next Question"}
