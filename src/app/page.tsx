@@ -20,6 +20,8 @@ import {
   Car,
   Gauge,
   CircleDot,
+  Phone,
+  Clock,
 } from "lucide-react";
 
 export default function Home() {
@@ -211,14 +213,14 @@ export default function Home() {
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
-                  <ThumbsUp className="w-6 h-6" />
+                  <Star className="w-6 h-6 fill-amber-500" />
                 </div>
                 <div>
                   <h3 className="font-serif text-3xl font-bold text-stone-900 tracking-tight">
-                    100%
+                    4.9 ★
                   </h3>
                   <p className="text-xs text-stone-500 uppercase tracking-widest font-semibold mt-1">
-                    Satisfaction Guarantee
+                    71+ Google Reviews
                   </p>
                 </div>
               </div>
@@ -438,6 +440,151 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* FIND US — EMBEDDED MAP SECTION */}
+        <section className="py-24 md:py-28 bg-stone-50 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="max-w-6xl mx-auto px-4 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              {/* Info Column */}
+              <div className="lg:col-span-5 animate-fade-up">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
+                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Find Our Academy</span>
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight mb-4">
+                  Visit us<br />
+                  <span className="text-amber-600 italic">on Kuntloor Road.</span>
+                </h2>
+                <p className="text-sm text-stone-600 leading-relaxed mb-8">
+                  Drop by our Hayathnagar campus to meet the instructors and
+                  inspect our training fleet before you enrol.
+                </p>
+
+                {/* Info chips */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-amber-700/10">
+                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <MapPin className="w-4 h-4 text-amber-700" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">
+                        Address
+                      </p>
+                      <p className="text-xs text-stone-700 leading-relaxed">
+                        Plot No 258, Kuntloor Rd, near Mother Dairy,<br />
+                        Kolan Shiva Reddy Nagar, Subhodaya Colony,<br />
+                        Hayathnagar, Hyderabad, Telangana 501505
+                      </p>
+                      <p className="text-[10px] text-amber-700 mt-1.5 font-mono">
+                        Plus Code: 8JP7+3F
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <a
+                      href="tel:+919000111450"
+                      className="flex items-start gap-2.5 p-4 rounded-2xl bg-white border border-amber-700/10 hover:border-amber-700/40 transition-colors group"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Phone className="w-4 h-4 text-amber-700" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">
+                          Call
+                        </p>
+                        <p className="text-xs text-stone-800 font-semibold group-hover:text-amber-700 transition-colors">
+                          +91 90001 11450
+                        </p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-start gap-2.5 p-4 rounded-2xl bg-white border border-amber-700/10">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Clock className="w-4 h-4 text-emerald-700" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">
+                          Hours
+                        </p>
+                        <p className="text-xs text-stone-800 font-semibold">
+                          Open 24 hours
+                        </p>
+                        <p className="text-[10px] text-stone-500 mt-0.5">
+                          7 days a week
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Rating chip */}
+                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-amber-100 via-amber-50 to-stone-50 border border-amber-300/40">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-amber-500 text-amber-500"
+                        />
+                      ))}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-stone-900">
+                        4.9 out of 5
+                      </p>
+                      <p className="text-[10px] text-stone-500">
+                        Based on 71+ verified Google reviews
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=17.3349578,78.6124129"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between p-3.5 bg-stone-900 hover:bg-stone-800 text-white rounded-full text-xs font-semibold premium-transition shadow-md active:scale-[0.98]"
+                  >
+                    <span className="pl-4 pr-2">Get Directions</span>
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-1 premium-transition">
+                      <Navigation className="w-3.5 h-3.5 text-white" />
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=SAI+LAXMI+MOTOR+DRIVING+SCHOOL+HAYATHNAGAR+KUNTLOOR+ROAD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-5 py-3.5 border border-amber-700/20 bg-white hover:bg-amber-50/60 text-stone-700 rounded-full text-xs font-semibold premium-transition active:scale-[0.98]"
+                  >
+                    <span>Open in Google Maps</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Map Column */}
+              <div className="lg:col-span-7 animate-fade-up">
+                <div className="p-1.5 rounded-[2rem] bg-gradient-to-br from-amber-500/30 via-amber-200/20 to-amber-700/20 border border-amber-600/20 shadow-xl">
+                  <div className="bg-white rounded-[calc(2rem-0.375rem)] overflow-hidden">
+                    <div className="relative h-[420px] md:h-[520px] bg-stone-100">
+                      <iframe
+                        title="Sai Lakshmi Driving School on Google Maps"
+                        src="https://maps.google.com/maps?q=SAI+LAXMI+MOTOR+DRIVING+SCHOOL+HAYATHNAGAR+KUNTLOOR+ROAD&ll=17.3349578,78.6124129&z=17&t=m&output=embed"
+                        className="absolute inset-0 w-full h-full border-0"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+                <p className="text-[10px] text-stone-400 text-center mt-3 italic">
+                  Map data © Google · Tap the map to interact, pinch to zoom
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* FOOTER */}
@@ -510,25 +657,30 @@ export default function Home() {
             <div className="space-y-2.5 text-xs">
               <p>
                 Hotline:{" "}
-                <span className="text-white font-medium">+91 98765 43210</span>
+                <a
+                  href="tel:+919000111450"
+                  className="text-white font-medium hover:text-amber-300 transition-colors"
+                >
+                  +91 90001 11450
+                </a>
               </p>
               <p className="flex items-start gap-1.5">
-                <span>Address:</span>
+                <span className="shrink-0">Address:</span>
                 <button
                   type="button"
                   onClick={() => setLocationOpen(true)}
                   className="text-left text-white font-medium hover:text-amber-300 transition-colors inline-flex items-start gap-1 group"
                 >
                   <span className="underline underline-offset-4 decoration-amber-700/40 group-hover:decoration-amber-400">
-                    Kuntloor Road, Hayathnagar, Hyderabad – 501505
+                    Plot No 258, Kuntloor Rd, Hayathnagar, Hyderabad – 501505
                   </span>
                   <MapPin className="w-3 h-3 mt-0.5 shrink-0 text-amber-400" />
                 </button>
               </p>
               <p>
-                Email:{" "}
-                <span className="text-white font-medium">
-                  contact@sailaxmimotor.in
+                Hours:{" "}
+                <span className="text-emerald-400 font-medium">
+                  Open 24 hours
                 </span>
               </p>
             </div>

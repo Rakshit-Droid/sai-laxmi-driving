@@ -9,15 +9,20 @@ interface LocationDialogProps {
 }
 
 const BUSINESS_NAME = "Sai Lakshmi Driving School";
-const ADDRESS = "Kuntloor Road, Hayathnagar, Hyderabad – 501505";
-const PHONE = "+91 98765 43210"; // TODO: replace with verified number
+const ADDRESS =
+  "Plot No 258, Kuntloor Rd, near Mother Dairy, Kolan Shiva Reddy Nagar, Subhodaya Colony, Hayathnagar, Hyderabad, Telangana 501505";
+const PHONE = "+91 90001 11450";
 
-const MAPS_QUERY = encodeURIComponent(
-  `${BUSINESS_NAME}, Kuntloor Road, Hayathnagar, Hyderabad`
+// Exact coordinates from Google Business listing
+const LAT = 17.3349578;
+const LNG = 78.6124129;
+const PLACE_QUERY = encodeURIComponent(
+  "SAI LAXMI MOTOR DRIVING SCHOOL HAYATHNAGAR KUNTLOOR ROAD"
 );
-const EMBED_URL = `https://maps.google.com/maps?q=${MAPS_QUERY}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
-const VIEW_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
-const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${MAPS_QUERY}`;
+
+const EMBED_URL = `https://maps.google.com/maps?q=${PLACE_QUERY}&ll=${LAT},${LNG}&z=17&t=m&output=embed`;
+const VIEW_URL = `https://www.google.com/maps/search/?api=1&query=${PLACE_QUERY}&query_place_id=${LAT},${LNG}`;
+const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${LAT},${LNG}&destination_place_id=${PLACE_QUERY}`;
 
 export default function LocationDialog({ open, onClose }: LocationDialogProps) {
   useEffect(() => {
@@ -69,7 +74,19 @@ export default function LocationDialog({ open, onClose }: LocationDialogProps) {
                 >
                   {BUSINESS_NAME}
                 </h2>
-                <p className="text-xs text-stone-600 mt-1">{ADDRESS}</p>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                  {ADDRESS}
+                </p>
+                <p className="text-[10px] text-stone-500 mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
+                  <span className="inline-flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Open 24 hours
+                  </span>
+                  <span>·</span>
+                  <span>4.9 ★ · 71+ Google reviews</span>
+                  <span>·</span>
+                  <span>Plus Code 8JP7+3F</span>
+                </p>
               </div>
             </div>
             <button
