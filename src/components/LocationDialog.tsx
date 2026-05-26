@@ -52,7 +52,7 @@ export default function LocationDialog({ open, onClose }: LocationDialogProps) {
         type="button"
         aria-label="Close location dialog"
         onClick={onClose}
-        className="absolute inset-0 bg-stone-950/70 backdrop-blur-md cursor-default"
+        className="absolute inset-0 bg-stone-950/80 cursor-default"
       ></button>
 
       {/* Dialog Card */}

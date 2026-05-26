@@ -89,7 +89,7 @@ export default function BookingCalendar() {
   return (
     <section id="scheduler" className="py-24 md:py-32 bg-white relative overflow-hidden">
       {/* Background radial accent */}
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-slate-100 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-slate-100 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">

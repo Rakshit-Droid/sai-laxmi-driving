@@ -31,7 +31,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-stone-50/98 backdrop-blur-sm shadow-[0_4px_24px_-12px_rgba(28,25,23,0.18)] border-b border-stone-200/80"
+          ? "bg-stone-50 shadow-[0_4px_24px_-12px_rgba(28,25,23,0.18)] border-b border-stone-200/80"
           : "bg-transparent"
       }`}
     >
@@ -121,7 +121,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-stone-950/95 backdrop-blur-2xl lg:hidden animate-fade-in flex flex-col justify-center px-8">
+        <div className="fixed inset-0 z-40 bg-stone-950/97 lg:hidden animate-fade-in flex flex-col justify-center px-8">
           <div className="flex flex-col gap-8 text-center">
             {navLinks.map((link, idx) => (
               <Link

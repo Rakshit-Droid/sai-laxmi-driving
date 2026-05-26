@@ -129,7 +129,7 @@ export default function TheoryTest() {
   return (
     <section id="theory-prep" className="py-24 md:py-32 bg-stone-50 relative overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-up">

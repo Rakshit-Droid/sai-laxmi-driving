@@ -112,7 +112,7 @@ export default function PackageSelector() {
   return (
     <section id="packages" className="py-24 md:py-32 bg-stone-50 relative overflow-hidden">
       {/* Background Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Section Title */}

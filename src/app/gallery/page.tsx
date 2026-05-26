@@ -157,8 +157,8 @@ export default function GalleryPage() {
   return (
     <div className="min-h-[100dvh] bg-stone-50 flex flex-col relative film-grain">
       {/* Decorative orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute top-[60dvh] left-0 w-[400px] h-[400px] bg-amber-700/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute top-[60dvh] left-0 w-[400px] h-[400px] bg-amber-700/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <Navbar />
 
@@ -235,7 +235,7 @@ export default function GalleryPage() {
                       src={photo.src}
                       alt={photo.title}
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     {/* Overlay gradient for caption legibility */}
                     <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/15 to-transparent"></div>

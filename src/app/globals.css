@@ -5,8 +5,8 @@
   --foreground: #1c1917; /* Stone-900 */
   --saffron: #d97706; /* Amber-600 — saffron / marigold accent */
   --saffron-deep: #b45309; /* Amber-700 */
-  --indian-green: #15803d; /* Deep traditional green */
-  --maroon: #9f1239; /* Rose-800 — traditional kumkum/maroon */
+  --indian-green: #15803d;
+  --maroon: #9f1239;
 }
 
 @theme inline {
@@ -28,23 +28,30 @@ body {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* Custom easing utilities for premium feel */
+/*
+ * Premium transition — limited to cheap, composited properties only.
+ * `transition: all` was causing repaints/relayouts on every hover.
+ * Transform + opacity stay on the GPU; the rest is for colour/shadow tweaks.
+ */
 .premium-transition {
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: transform, background-color, border-color, color,
+    box-shadow, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Glassmorphism panel refraction effect (Liquid Glass) — warmed for cream backdrop */
+/* Glassmorphism panel — kept for compatibility but no longer applied to navbar */
 .liquid-glass {
-  background: rgba(251, 247, 240, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(251, 247, 240, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(217, 119, 6, 0.15);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.45),
     0 20px 40px -15px rgba(120, 53, 15, 0.07);
 }
 
-/* Grid overlay background for premium subtle texture */
+/* Grid overlay background — static, cheap */
 .bg-grid-pattern {
   background-size: 50px 50px;
   background-image:
@@ -52,18 +59,18 @@ body {
     linear-gradient(to bottom, rgba(120, 53, 15, 0.06) 1px, transparent 1px);
 }
 
-/* Subtle paisley-inspired motif overlay for traditional touch */
+/* Subtle paisley-inspired motif overlay — static SVG */
 .bg-paisley-pattern {
   background-color: transparent;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d97706' stroke-opacity='0.08' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M40 22 Q52 30 52 40 Q52 50 40 58 Q28 50 28 40 Q28 30 40 22 Z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Subtle CSS noise/film-grain overlay for editorial feel */
+/* Film grain overlay — static */
 .film-grain {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
-/* Soft ambient shadow for structural components — warmed */
+/* Soft ambient shadow for structural components */
 .diffused-shadow {
   box-shadow: 0 32px 64px -20px rgba(120, 53, 15, 0.08);
 }
@@ -90,29 +97,29 @@ body {
   max-width: 8rem;
 }
 
-/* Keyframe animations */
+/*
+ * Fade-up — opacity + transform only.
+ * Removed the `filter: blur()` animation which was hammering the compositor
+ * on every scroll-triggered intro.
+ */
 @keyframes fade-up {
   0% {
     opacity: 0;
-    transform: translateY(24px) scale(0.98);
-    filter: blur(4px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes pulse-slow {
   0%,
   100% {
-    opacity: 0.15;
-    transform: scale(1);
+    opacity: 0.12;
   }
   50% {
-    opacity: 0.3;
-    transform: scale(1.05);
+    opacity: 0.22;
   }
 }
 
@@ -126,13 +133,25 @@ body {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-up 0.55s ease-out forwards;
+  will-change: opacity, transform;
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 8s ease-in-out infinite;
+  animation: pulse-slow 10s ease-in-out infinite;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+/* Respect reduced-motion preference for users who need it */
+@media (prefers-reduced-motion: reduce) {
+  .premium-transition,
+  .animate-fade-up,
+  .animate-pulse-slow,
+  .animate-fade-in {
+    animation: none !important;
+    transition: none !important;
+  }
 }

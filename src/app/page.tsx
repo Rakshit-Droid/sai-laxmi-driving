@@ -27,8 +27,8 @@ export default function Home() {
   return (
     <div className="min-h-[100dvh] bg-stone-50 flex flex-col relative film-grain">
       {/* Decorative Blur Background Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute top-[40dvh] left-0 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute top-[40dvh] left-0 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <Navbar />
 
@@ -228,7 +228,7 @@ export default function Home() {
 
         {/* OUR FLEET / WHY CHOOSE US */}
         <section className="py-24 md:py-28 bg-stone-50 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="max-w-5xl mx-auto px-4 relative z-10">
             <div className="max-w-3xl mb-14 animate-fade-up">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
@@ -282,7 +282,7 @@ export default function Home() {
                       src={car.src}
                       alt={car.title}
                       loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     {/* Subtle bottom gradient for visual depth */}
                     <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-stone-950/15 to-transparent pointer-events-none"></div>
@@ -423,7 +423,7 @@ export default function Home() {
         </section>
         {/* FIND US — EMBEDDED MAP SECTION */}
         <section className="py-24 md:py-28 bg-stone-50 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="max-w-6xl mx-auto px-4 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               {/* Info Column */}
