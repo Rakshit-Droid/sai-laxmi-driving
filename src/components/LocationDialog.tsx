@@ -8,7 +8,7 @@ interface LocationDialogProps {
   onClose: () => void;
 }
 
-const BUSINESS_NAME = "Sai Laxmi Motor Driving School";
+const BUSINESS_NAME = "Sai Lakshmi Driving School";
 const ADDRESS = "Kuntloor Road, Hayathnagar, Hyderabad – 501505";
 const PHONE = "+91 98765 43210"; // TODO: replace with verified number
 

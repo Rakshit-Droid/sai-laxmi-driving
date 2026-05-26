@@ -116,7 +116,7 @@ export default function Home() {
 
                     {/* Academy Info */}
                     <h3 className="font-serif text-xl font-semibold text-stone-900 mb-1 leading-tight">
-                      Sai Laxmi Motor Driving School
+                      Sai Lakshmi Driving School
                     </h3>
                     <p className="text-xs text-stone-500 mb-6 flex items-center gap-1.5">
                       <ShieldCheck className="w-3 h-3 text-amber-600" />
@@ -445,12 +445,17 @@ export default function Home() {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700"></div>
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center text-white">
-                <ShieldCheck className="w-4 h-4" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-stone-800 ring-1 ring-amber-500/30 flex items-center justify-center overflow-hidden shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.png"
+                  alt="Sai Lakshmi Driving School"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="font-serif font-semibold text-white text-base tracking-tight">
-                Sai Laxmi Motor Driving School
+                Sai Lakshmi Driving School
               </span>
             </div>
             <p className="text-xs text-stone-500 leading-relaxed max-w-[35ch] mb-6">

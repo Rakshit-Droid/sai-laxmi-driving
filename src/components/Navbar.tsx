@@ -9,6 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,23 +37,33 @@ export default function Navbar() {
     >
       <nav
         className={`mx-auto max-w-6xl flex items-center justify-between premium-transition ${
-          scrolled ? "py-3 px-5 lg:px-8" : "py-5 px-5 lg:px-8"
+          scrolled ? "py-3 px-5 lg:px-8" : "py-4 px-5 lg:px-8"
         }`}
       >
         {/* Brand Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 group shrink-0"
+          className="flex items-center gap-3 group shrink-0"
         >
-          <div className="w-9 h-9 rounded-full bg-amber-600 flex items-center justify-center text-white shadow-[0_4px_12px_rgba(217,119,6,0.2)] group-hover:scale-105 premium-transition shrink-0">
-            <Shield className="w-5 h-5 stroke-[2]" />
+          <div className="w-11 h-11 rounded-full bg-stone-900 flex items-center justify-center overflow-hidden shadow-[0_4px_14px_rgba(28,25,23,0.25)] group-hover:scale-105 premium-transition shrink-0 ring-1 ring-amber-600/30">
+            {logoFailed ? (
+              <Shield className="w-5 h-5 text-amber-500 stroke-[2]" />
+            ) : (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src="/logo.png"
+                alt="Sai Lakshmi Driving School"
+                className="w-full h-full object-cover"
+                onError={() => setLogoFailed(true)}
+              />
+            )}
           </div>
           <div className="flex flex-col leading-tight">
             <span className="font-serif font-semibold text-stone-900 tracking-tight text-base lg:text-lg whitespace-nowrap group-hover:text-amber-700 premium-transition">
-              Sai Laxmi Motor
+              Sai Lakshmi
             </span>
             <span className="text-[9px] uppercase tracking-[0.2em] text-stone-500 font-medium whitespace-nowrap">
-              Driving School · Hyderabad
+              Driving School · Hayathnagar
             </span>
           </div>
         </Link>
@@ -108,7 +119,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-stone-950/85 backdrop-blur-2xl md:hidden animate-fade-in flex flex-col justify-center px-8">
+        <div className="fixed inset-0 z-40 bg-stone-950/95 backdrop-blur-2xl lg:hidden animate-fade-in flex flex-col justify-center px-8">
           <div className="flex flex-col gap-8 text-center">
             {navLinks.map((link, idx) => (
               <Link

@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Sai Laxmi Motor Driving School | Hayathnagar, Hyderabad",
+  title: "Sai Lakshmi Driving School | Hayathnagar, Hyderabad",
   description:
     "Trusted driving school on Kuntloor Road, Hayathnagar, Hyderabad. Expert RTO-certified instructors, dual-control training cars, mock RTO tests, and refresher courses for beginners, adults and seniors.",
 };

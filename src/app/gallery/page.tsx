@@ -333,7 +333,7 @@ export default function GalleryPage() {
                   </h2>
                   <p className="text-sm text-stone-600 max-w-[50ch] mx-auto mb-8">
                     Join thousands of confident drivers across India who began
-                    their journey at Sai Laxmi Motor Driving School.
+                    their journey at Sai Lakshmi Driving School.
                   </p>
                   <Link
                     href="/#scheduler"
@@ -355,7 +355,7 @@ export default function GalleryPage() {
       <footer className="bg-stone-900 text-stone-500 py-10 text-center text-xs relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700"></div>
         <p>
-          &copy; {new Date().getFullYear()} Sai Laxmi Motor Driving School.
+          &copy; {new Date().getFullYear()} Sai Lakshmi Driving School.
           All rights reserved.
         </p>
       </footer>
