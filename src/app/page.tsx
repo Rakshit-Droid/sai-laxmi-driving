@@ -14,10 +14,8 @@ import {
   Navigation,
   Award,
   Users,
-  ThumbsUp,
   Star,
   MapPin,
-  Car,
   Gauge,
   CircleDot,
   Phone,
@@ -255,30 +253,21 @@ export default function Home() {
                   badge: "Beginner Hatchback",
                   desc: "Most popular learner car in India. Lightweight, easy clutch, perfect first-timer ride.",
                   specs: ["796 cc", "Petrol", "Manual / AMT"],
-                  gradient:
-                    "from-amber-100 via-amber-200/60 to-amber-300/40",
-                  accent: "text-amber-800",
-                  ring: "ring-amber-400/40",
+                  src: "/fleet-alto.jpg",
                 },
                 {
                   title: "Maruti Suzuki Swift",
                   badge: "Manual Hatchback",
                   desc: "Crowd-favourite for stick-shift mastery. Gear sequencing & city navigation focus.",
                   specs: ["1197 cc", "Petrol", "5-speed Manual"],
-                  gradient:
-                    "from-rose-100 via-rose-200/60 to-rose-300/40",
-                  accent: "text-rose-800",
-                  ring: "ring-rose-400/40",
+                  src: "/fleet-swift.jpg",
                 },
                 {
                   title: "Maruti Suzuki WagonR",
                   badge: "Refresher / Senior",
                   desc: "Tall-boy cabin with excellent visibility — ideal for adult and senior refresher learners.",
                   specs: ["1197 cc", "Petrol / CNG", "Manual"],
-                  gradient:
-                    "from-sky-100 via-sky-200/60 to-sky-300/40",
-                  accent: "text-sky-800",
-                  ring: "ring-sky-400/40",
+                  src: "/fleet-wagonr.jpg",
                 },
               ].map((car, idx) => (
                 <div
@@ -286,28 +275,20 @@ export default function Home() {
                   className="group relative rounded-3xl overflow-hidden bg-white border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  {/* Illustrated header — gradient background + car icon */}
-                  <div
-                    className={`relative h-52 overflow-hidden bg-gradient-to-br ${car.gradient} flex items-center justify-center`}
-                  >
-                    {/* Decorative road stripes */}
-                    <div className="absolute inset-x-0 bottom-6 flex items-center justify-center gap-2 opacity-50">
-                      <div className="h-0.5 w-6 bg-stone-700/30 rounded"></div>
-                      <div className="h-0.5 w-6 bg-stone-700/30 rounded"></div>
-                      <div className="h-0.5 w-6 bg-stone-700/30 rounded"></div>
-                      <div className="h-0.5 w-6 bg-stone-700/30 rounded"></div>
-                    </div>
-                    {/* Decorative ring orbs */}
-                    <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full border-2 ${car.ring} pointer-events-none`}></div>
-                    <div className={`absolute -bottom-12 -left-8 w-28 h-28 rounded-full border ${car.ring} pointer-events-none`}></div>
-
-                    {/* Car icon — large, central */}
-                    <Car
-                      className={`w-24 h-24 ${car.accent} stroke-[1.25] relative z-10 group-hover:-translate-y-1 group-hover:scale-105 premium-transition`}
+                  {/* Car photo header */}
+                  <div className="relative h-52 overflow-hidden bg-stone-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={car.src}
+                      alt={car.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                     />
+                    {/* Subtle bottom gradient for visual depth */}
+                    <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-stone-950/15 to-transparent pointer-events-none"></div>
 
                     {/* Badge */}
-                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[9px] uppercase tracking-widest font-bold text-amber-700">
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[9px] uppercase tracking-widest font-bold text-amber-700 shadow-sm">
                       {car.badge}
                     </div>
                   </div>
