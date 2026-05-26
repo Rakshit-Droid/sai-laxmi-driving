@@ -12,19 +12,11 @@ import {
   ShieldCheck,
   Sparkles,
   Award,
-  CloudRain,
-  Moon,
-  Octagon,
-  Users,
-  KeyRound,
+  Trophy,
   ParkingSquare,
   Cone,
-  ClipboardCheck,
-  Trophy,
-  Coffee,
-  Building2,
   Tablet,
-  Sun,
+  Building2,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -35,7 +27,10 @@ interface Photo {
   title: string;
   caption: string;
   category: Exclude<Category, "all">;
-  icon: LucideIcon;
+  /** Optional real photo. When absent, falls back to icon + gradient tile. */
+  src?: string;
+  /** Used for the icon-tile fallback when no image is supplied. */
+  icon?: LucideIcon;
   span?: "tall" | "wide" | "regular";
 }
 
@@ -45,7 +40,7 @@ const photos: Photo[] = [
     title: "Hyderabad City Drive",
     caption: "Learner navigating Outer Ring Road peak-hour traffic.",
     category: "roads",
-    icon: MapPin,
+    src: "/gallery/hyderabad-city-drive.jpg",
     span: "wide",
   },
   {
@@ -53,14 +48,14 @@ const photos: Photo[] = [
     title: "Auto-Rickshaw Awareness",
     caption: "Training around three-wheelers on Indian streets.",
     category: "roads",
-    icon: Users,
+    src: "/gallery/auto-rickshaw-awareness.jpg",
   },
   {
     id: 3,
     title: "Beginner Hatchback",
     caption: "Dual-control Maruti Alto fitted for new learners.",
     category: "fleet",
-    icon: Car,
+    src: "/gallery/beginner-hatchback.avif",
     span: "tall",
   },
   {
@@ -68,21 +63,21 @@ const photos: Photo[] = [
     title: "Sedan Practice Sessions",
     caption: "Honda City lessons for highway entry & overtaking.",
     category: "fleet",
-    icon: Car,
+    src: "/gallery/sedan-practice-sessions.webp",
   },
   {
     id: 5,
     title: "RTO Test Day",
     caption: "A graduate at the regional RTO test ground.",
     category: "rto",
-    icon: ClipboardCheck,
+    src: "/gallery/rto-test-day.jpg",
   },
   {
     id: 6,
     title: "National Highway Drives",
     caption: "Long-distance highway driving sessions on NH-65.",
     category: "roads",
-    icon: Sun,
+    src: "/gallery/national-highway-drives.jpg",
     span: "tall",
   },
   {
@@ -90,14 +85,14 @@ const photos: Photo[] = [
     title: "Manual Transmission",
     caption: "Stick-shift training in our manual hatchback fleet.",
     category: "fleet",
-    icon: KeyRound,
+    src: "/gallery/manual-transmission.jpg",
   },
   {
     id: 8,
     title: "Licence Day Joy",
     caption: "First-attempt RTO pass — proud graduates of our academy.",
     category: "students",
-    icon: Trophy,
+    src: "/gallery/licence-day-joy.jpg",
     span: "wide",
   },
   {
@@ -105,21 +100,21 @@ const photos: Photo[] = [
     title: "Theory Classroom",
     caption: "Indian RTO traffic-rule lecture in our academy.",
     category: "campus",
-    icon: GraduationCap,
+    src: "/gallery/theory-classroom.jpg",
   },
   {
     id: 10,
     title: "Monsoon Driving Module",
     caption: "Hydroplaning & wet-grip training in the Hyderabad rains.",
     category: "roads",
-    icon: CloudRain,
+    src: "/gallery/monsoon-driving-module.jpg",
   },
   {
     id: 11,
     title: "Reverse Parking Drill",
     caption: "Practice in our parking-skill obstacle course.",
     category: "campus",
-    icon: ParkingSquare,
+    src: "/gallery/reverse-parking-drill.jpg",
     span: "tall",
   },
   {
@@ -127,14 +122,14 @@ const photos: Photo[] = [
     title: "Night Driving Cert.",
     caption: "Headlight discipline and glare reduction practice.",
     category: "roads",
-    icon: Moon,
+    src: "/gallery/night-driving-cert.jpg",
   },
   {
     id: 13,
     title: "Training Fleet Lineup",
     caption: "Our certified instructor cars ready for class.",
     category: "fleet",
-    icon: Car,
+    src: "/gallery/training-fleet-lineup.jpg",
     span: "wide",
   },
   {
@@ -142,43 +137,43 @@ const photos: Photo[] = [
     title: "Mock RTO Briefing",
     caption: "Pre-test walkthrough of road-test patterns.",
     category: "rto",
-    icon: ShieldCheck,
+    src: "/gallery/mock-rto-briefing.jpg",
   },
   {
     id: 15,
+    title: "Indian Traffic Signs",
+    caption: "Sign-recognition module — core to RTO theory prep.",
+    category: "rto",
+    src: "/gallery/indian-traffic-signs.png",
+  },
+  /* — illustrated tiles below for entries we don't have photos for yet — */
+  {
+    id: 16,
     title: "Senior Refresher Batch",
     caption: "Adult & senior refresher graduates after final session.",
     category: "students",
     icon: Award,
   },
   {
-    id: 16,
+    id: 17,
     title: "Academy Reception",
     caption: "Welcome desk at our Hayathnagar head campus.",
     category: "campus",
-    icon: Coffee,
+    icon: Building2,
   },
   {
-    id: 17,
+    id: 18,
     title: "First Licence Held High",
-    caption: "Arjun moments after receiving his LMV licence.",
+    caption: "A graduate moments after receiving the LMV licence.",
     category: "students",
     icon: Trophy,
   },
   {
-    id: 18,
+    id: 19,
     title: "WagonR for Refreshers",
     caption: "Tall-boy cabin for adult & senior refresher learners.",
     category: "fleet",
     icon: Car,
-    span: "wide",
-  },
-  {
-    id: 19,
-    title: "Indian Traffic Signs",
-    caption: "Sign-recognition module — core to RTO theory prep.",
-    category: "rto",
-    icon: Octagon,
   },
   {
     id: 20,
@@ -213,7 +208,7 @@ const categoryMeta: { key: Category; label: string; icon: LucideIcon }[] = [
   { key: "campus", label: "Campus Life", icon: Camera },
 ];
 
-/** Category-specific colour palettes for the illustrated tiles */
+/** Category-specific colour palettes used only for the icon-tile fallback */
 const categoryStyle: Record<
   Exclude<Category, "all">,
   { gradient: string; iconClass: string; tag: string }
@@ -310,7 +305,7 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* TILE GRID — Illustrated cards (icon + gradient + caption) */}
+        {/* TILE GRID — Photos where available, illustrated tiles otherwise */}
         <section className="pb-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-5">
@@ -323,39 +318,65 @@ export default function GalleryPage() {
                     : "";
                 const style = categoryStyle[photo.category];
                 const Icon = photo.icon;
+
                 return (
                   <figure
                     key={photo.id}
-                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up bg-gradient-to-br ${style.gradient} ${spanClass}`}
+                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up ${
+                      photo.src
+                        ? "bg-stone-100"
+                        : `bg-gradient-to-br ${style.gradient}`
+                    } ${spanClass}`}
                     style={{ animationDelay: `${idx * 40}ms` }}
                   >
-                    {/* Decorative orbital rings */}
-                    <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full border-2 border-white/25 pointer-events-none"></div>
-                    <div className="absolute -bottom-20 -left-12 w-40 h-40 rounded-full border border-white/20 pointer-events-none"></div>
-                    <div className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-white/40 pointer-events-none"></div>
-
-                    {/* Centred big icon */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <Icon
-                        className={`w-20 h-20 ${style.iconClass} stroke-[1.25] opacity-90 group-hover:scale-110 group-hover:-translate-y-1 premium-transition`}
-                      />
-                    </div>
+                    {photo.src ? (
+                      // Real photo
+                      <>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={photo.src}
+                          alt={photo.title}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                        />
+                        {/* Overlay gradient for caption legibility */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/15 to-transparent"></div>
+                      </>
+                    ) : (
+                      // Icon-tile fallback
+                      <>
+                        <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full border-2 border-white/25 pointer-events-none"></div>
+                        <div className="absolute -bottom-20 -left-12 w-40 h-40 rounded-full border border-white/20 pointer-events-none"></div>
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          {Icon && (
+                            <Icon
+                              className={`w-20 h-20 ${style.iconClass} stroke-[1.25] opacity-90 group-hover:scale-110 group-hover:-translate-y-1 premium-transition`}
+                            />
+                          )}
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent"></div>
+                      </>
+                    )}
 
                     {/* Category chip top-left */}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 z-10">
                       <span
-                        className={`inline-block text-[9px] uppercase tracking-[0.25em] font-bold px-2.5 py-1 rounded-full bg-white/70 backdrop-blur-sm ${style.tag}`}
+                        className={`inline-block text-[9px] uppercase tracking-[0.25em] font-bold px-2.5 py-1 rounded-full backdrop-blur-sm ${
+                          photo.src
+                            ? "bg-white/80 text-stone-900"
+                            : `bg-white/70 ${style.tag}`
+                        }`}
                       >
                         {photo.category}
                       </span>
                     </div>
 
                     {/* Caption bottom */}
-                    <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-transparent">
-                      <h3 className="font-serif text-lg md:text-xl font-semibold text-white leading-tight mb-1">
+                    <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white z-10">
+                      <h3 className="font-serif text-lg md:text-xl font-semibold leading-tight mb-1">
                         {photo.title}
                       </h3>
-                      <p className="text-xs text-white/80 leading-relaxed max-w-[42ch]">
+                      <p className="text-xs text-white/85 leading-relaxed max-w-[42ch]">
                         {photo.caption}
                       </p>
                     </figcaption>
