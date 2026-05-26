@@ -11,12 +11,6 @@ import {
   GraduationCap,
   ShieldCheck,
   Sparkles,
-  Award,
-  Trophy,
-  ParkingSquare,
-  Cone,
-  Tablet,
-  Building2,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -27,10 +21,7 @@ interface Photo {
   title: string;
   caption: string;
   category: Exclude<Category, "all">;
-  /** Optional real photo. When absent, falls back to icon + gradient tile. */
-  src?: string;
-  /** Used for the icon-tile fallback when no image is supplied. */
-  icon?: LucideIcon;
+  src: string;
   span?: "tall" | "wide" | "regular";
 }
 
@@ -146,57 +137,6 @@ const photos: Photo[] = [
     category: "rto",
     src: "/gallery/indian-traffic-signs.png",
   },
-  /* — illustrated tiles below for entries we don't have photos for yet — */
-  {
-    id: 16,
-    title: "Senior Refresher Batch",
-    caption: "Adult & senior refresher graduates after final session.",
-    category: "students",
-    icon: Award,
-  },
-  {
-    id: 17,
-    title: "Academy Reception",
-    caption: "Welcome desk at our Hayathnagar head campus.",
-    category: "campus",
-    icon: Building2,
-  },
-  {
-    id: 18,
-    title: "First Licence Held High",
-    caption: "A graduate moments after receiving the LMV licence.",
-    category: "students",
-    icon: Trophy,
-  },
-  {
-    id: 19,
-    title: "WagonR for Refreshers",
-    caption: "Tall-boy cabin for adult & senior refresher learners.",
-    category: "fleet",
-    icon: Car,
-  },
-  {
-    id: 20,
-    title: "Digital Theory Lab",
-    caption: "Tablet-based mock RTO test stations on campus.",
-    category: "campus",
-    icon: Tablet,
-    span: "tall",
-  },
-  {
-    id: 21,
-    title: "Cone Obstacle Course",
-    caption: "Low-speed manoeuvring drills for fine control.",
-    category: "campus",
-    icon: Cone,
-  },
-  {
-    id: 22,
-    title: "Hayathnagar Campus",
-    caption: "Our main facility on Kuntloor Road.",
-    category: "campus",
-    icon: Building2,
-  },
 ];
 
 const categoryMeta: { key: Category; label: string; icon: LucideIcon }[] = [
@@ -207,38 +147,6 @@ const categoryMeta: { key: Category; label: string; icon: LucideIcon }[] = [
   { key: "students", label: "Our Students", icon: GraduationCap },
   { key: "campus", label: "Campus Life", icon: Camera },
 ];
-
-/** Category-specific colour palettes used only for the icon-tile fallback */
-const categoryStyle: Record<
-  Exclude<Category, "all">,
-  { gradient: string; iconClass: string; tag: string }
-> = {
-  fleet: {
-    gradient: "from-amber-200 via-amber-300/70 to-amber-400/60",
-    iconClass: "text-amber-900",
-    tag: "text-amber-900/90",
-  },
-  roads: {
-    gradient: "from-emerald-200 via-emerald-300/70 to-emerald-400/60",
-    iconClass: "text-emerald-900",
-    tag: "text-emerald-900/90",
-  },
-  rto: {
-    gradient: "from-rose-200 via-rose-300/70 to-rose-400/60",
-    iconClass: "text-rose-900",
-    tag: "text-rose-900/90",
-  },
-  students: {
-    gradient: "from-sky-200 via-sky-300/70 to-sky-400/60",
-    iconClass: "text-sky-900",
-    tag: "text-sky-900/90",
-  },
-  campus: {
-    gradient: "from-violet-200 via-violet-300/70 to-violet-400/60",
-    iconClass: "text-violet-900",
-    tag: "text-violet-900/90",
-  },
-};
 
 export default function GalleryPage() {
   const [active, setActive] = useState<Category>("all");
@@ -275,7 +183,7 @@ export default function GalleryPage() {
             </p>
 
             <div className="ornamental-divider text-[10px] uppercase tracking-[0.3em] font-semibold text-amber-700 max-w-md mx-auto">
-              <span>{photos.length} Featured Highlights</span>
+              <span>{photos.length} Featured Photos</span>
             </div>
           </div>
         </section>
@@ -305,7 +213,7 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* TILE GRID — Photos where available, illustrated tiles otherwise */}
+        {/* PHOTO GRID */}
         <section className="pb-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-5">
@@ -316,57 +224,25 @@ export default function GalleryPage() {
                     : photo.span === "wide"
                     ? "sm:col-span-2"
                     : "";
-                const style = categoryStyle[photo.category];
-                const Icon = photo.icon;
-
                 return (
                   <figure
                     key={photo.id}
-                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up ${
-                      photo.src
-                        ? "bg-stone-100"
-                        : `bg-gradient-to-br ${style.gradient}`
-                    } ${spanClass}`}
+                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up bg-stone-100 ${spanClass}`}
                     style={{ animationDelay: `${idx * 40}ms` }}
                   >
-                    {photo.src ? (
-                      // Real photo
-                      <>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={photo.src}
-                          alt={photo.title}
-                          loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
-                        />
-                        {/* Overlay gradient for caption legibility */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/15 to-transparent"></div>
-                      </>
-                    ) : (
-                      // Icon-tile fallback
-                      <>
-                        <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full border-2 border-white/25 pointer-events-none"></div>
-                        <div className="absolute -bottom-20 -left-12 w-40 h-40 rounded-full border border-white/20 pointer-events-none"></div>
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          {Icon && (
-                            <Icon
-                              className={`w-20 h-20 ${style.iconClass} stroke-[1.25] opacity-90 group-hover:scale-110 group-hover:-translate-y-1 premium-transition`}
-                            />
-                          )}
-                        </div>
-                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent"></div>
-                      </>
-                    )}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                    />
+                    {/* Overlay gradient for caption legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/15 to-transparent"></div>
 
                     {/* Category chip top-left */}
                     <div className="absolute top-4 left-4 z-10">
-                      <span
-                        className={`inline-block text-[9px] uppercase tracking-[0.25em] font-bold px-2.5 py-1 rounded-full backdrop-blur-sm ${
-                          photo.src
-                            ? "bg-white/80 text-stone-900"
-                            : `bg-white/70 ${style.tag}`
-                        }`}
-                      >
+                      <span className="inline-block text-[9px] uppercase tracking-[0.25em] font-bold px-2.5 py-1 rounded-full backdrop-blur-sm bg-white/80 text-stone-900">
                         {photo.category}
                       </span>
                     </div>
@@ -387,7 +263,7 @@ export default function GalleryPage() {
 
             {filtered.length === 0 && (
               <div className="text-center py-20 text-stone-500 text-sm">
-                No items found in this category yet.
+                No photos found in this category yet.
               </div>
             )}
           </div>
