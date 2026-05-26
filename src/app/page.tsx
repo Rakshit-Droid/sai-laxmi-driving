@@ -29,9 +29,20 @@ export default function Home() {
         {/* HERO SECTION */}
         <section
           id="home"
-          className="min-h-[100dvh] flex items-center pt-28 pb-16 bg-grid-pattern bg-paisley-pattern relative"
+          className="min-h-[100dvh] flex items-center pt-28 pb-16 relative overflow-hidden"
         >
-          <div className="max-w-5xl mx-auto w-full px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Hero Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url(/hero-background.avif)" }}
+            aria-hidden="true"
+          ></div>
+          {/* Warm cream + saffron gradient overlay for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-50/92 via-stone-50/75 to-amber-50/82"></div>
+          {/* Subtle paisley + grid pattern on top of overlay */}
+          <div className="absolute inset-0 bg-grid-pattern bg-paisley-pattern opacity-70"></div>
+
+          <div className="max-w-5xl mx-auto w-full px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Hero Left Content */}
             <div className="lg:col-span-7 flex flex-col items-start text-left animate-fade-up">
               {/* Eyebrow badge */}
@@ -201,6 +212,78 @@ export default function Home() {
           </div>
         </section>
 
+        {/* OUR FLEET / WHY CHOOSE US */}
+        <section className="py-24 md:py-28 bg-stone-50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="max-w-5xl mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mb-14 animate-fade-up">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <span>Our Training Fleet</span>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight mb-4">
+                Modern cars,<br />
+                traditional values.
+              </h2>
+              <p className="text-base text-stone-600 leading-relaxed">
+                Every learner trains on a dual-control vehicle maintained to
+                showroom condition. Choose hatchback, sedan, or manual based on
+                your licence goal.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80",
+                  title: "Maruti Swift",
+                  badge: "Automatic Hatchback",
+                  desc: "Best for first-time learners. Easy clutch-free control with dual-pedal safety.",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
+                  title: "Honda City",
+                  badge: "Manual Sedan",
+                  desc: "Stick-shift mastery. Highway entry, gear sequencing and overtaking confidence.",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1581540222194-0def2dda95b8?auto=format&fit=crop&w=900&q=80",
+                  title: "Hyundai Verna",
+                  badge: "Refresher Sedan",
+                  desc: "Spacious cabin tuned for adult and senior refresher students.",
+                },
+              ].map((car, idx) => (
+                <div
+                  key={car.title}
+                  className="group relative rounded-3xl overflow-hidden bg-white border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <div className="relative h-52 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={car.src}
+                      alt={car.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                    <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[9px] uppercase tracking-widest font-bold text-amber-700">
+                      {car.badge}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-serif text-xl font-semibold text-stone-900 mb-2">
+                      {car.title}
+                    </h3>
+                    <p className="text-xs text-stone-500 leading-relaxed">
+                      {car.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* PACKAGE SELECTOR */}
         <PackageSelector />
 
@@ -230,82 +313,71 @@ export default function Home() {
 
             {/* Staggered Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              {/* Review 1 */}
-              <div className="p-6 rounded-3xl bg-stone-50 border border-amber-700/10 flex flex-col justify-between min-h-[220px]">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-amber-500 text-amber-500"
-                    />
-                  ))}
+              {[
+                {
+                  quote:
+                    "I was incredibly nervous about city traffic and signal crossings as an adult learner. The instructor was exceptionally patient and used the dual-pedals to guide me safely until I gained full confidence.",
+                  name: "Priya Menon",
+                  role: "Adult Learner Program · Bengaluru",
+                  avatar:
+                    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80",
+                  offset: "",
+                },
+                {
+                  quote:
+                    "My son completed the 20-hour package. The parent progress reports gave us complete peace of mind. He cleared his RTO driving test on the very first attempt!",
+                  name: "Suresh Patel",
+                  role: "Parent of Beginner Student · Mumbai",
+                  avatar:
+                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
+                  offset: "md:translate-y-6",
+                },
+                {
+                  quote:
+                    "After not driving for six years, I needed a brush-up package before my licence renewal. The traffic navigation coaching was excellent and refreshed all my road awareness habits.",
+                  name: "Vikram Nair",
+                  role: "Refresher Course Graduate · Hyderabad",
+                  avatar:
+                    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&h=200&q=80",
+                  offset: "",
+                },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  className={`p-6 rounded-3xl bg-stone-50 border border-amber-700/10 flex flex-col justify-between min-h-[240px] ${t.offset}`}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-amber-500 text-amber-500"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed mb-6">
+                    &quot;{t.quote}&quot;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-amber-200/60 shrink-0 bg-amber-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-sm font-semibold text-stone-900">
+                        {t.name}
+                      </h4>
+                      <span className="text-[10px] text-stone-400">
+                        {t.role}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs text-stone-600 leading-relaxed mb-6">
-                  &quot;I was incredibly nervous about city traffic and signal
-                  crossings as an adult learner. The instructor was exceptionally
-                  patient and used the dual-pedals to guide me safely until I
-                  gained full confidence.&quot;
-                </p>
-                <div>
-                  <h4 className="font-serif text-sm font-semibold text-stone-900">
-                    Priya Menon
-                  </h4>
-                  <span className="text-[10px] text-stone-400">
-                    Adult Learner Program · Bengaluru
-                  </span>
-                </div>
-              </div>
-
-              {/* Review 2 */}
-              <div className="p-6 rounded-3xl bg-stone-50 border border-amber-700/10 flex flex-col justify-between min-h-[220px] md:translate-y-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-amber-500 text-amber-500"
-                    />
-                  ))}
-                </div>
-                <p className="text-xs text-stone-600 leading-relaxed mb-6">
-                  &quot;My son completed the 20-hour package. The parent progress
-                  reports gave us complete peace of mind. He cleared his RTO
-                  driving test on the very first attempt!&quot;
-                </p>
-                <div>
-                  <h4 className="font-serif text-sm font-semibold text-stone-900">
-                    Suresh Patel
-                  </h4>
-                  <span className="text-[10px] text-stone-400">
-                    Parent of Beginner Student · Mumbai
-                  </span>
-                </div>
-              </div>
-
-              {/* Review 3 */}
-              <div className="p-6 rounded-3xl bg-stone-50 border border-amber-700/10 flex flex-col justify-between min-h-[220px]">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-amber-500 text-amber-500"
-                    />
-                  ))}
-                </div>
-                <p className="text-xs text-stone-600 leading-relaxed mb-6">
-                  &quot;After not driving for six years, I needed a brush-up
-                  package before my licence renewal. The traffic navigation
-                  coaching was excellent and refreshed all my road awareness
-                  habits.&quot;
-                </p>
-                <div>
-                  <h4 className="font-serif text-sm font-semibold text-stone-900">
-                    Vikram Nair
-                  </h4>
-                  <span className="text-[10px] text-stone-400">
-                    Refresher Course Graduate · Hyderabad
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>

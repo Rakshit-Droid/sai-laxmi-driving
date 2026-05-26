@@ -125,12 +125,47 @@ export default function TheoryTest() {
             <BookOpen className="w-3.5 h-3.5 text-amber-600" />
             <span>Interactive Simulator</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight mb-4">
             Test your road knowledge instantly.
           </h2>
-          <p className="text-base text-slate-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-stone-600 leading-relaxed max-w-2xl mx-auto mb-10">
             Try our mini-quiz modeled after current RTO theory exams. Spot your weaknesses and see explanations instantly.
           </p>
+
+          {/* Decorative image strip — Indian traffic signs / road */}
+          <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
+            {[
+              {
+                src: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?auto=format&fit=crop&w=400&q=80",
+                label: "Road Signs",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=400&q=80",
+                label: "Night Driving",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=400&q=80",
+                label: "Monsoon Rules",
+              },
+            ].map((img) => (
+              <div
+                key={img.label}
+                className="relative rounded-2xl overflow-hidden h-24 border border-amber-700/10"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent"></div>
+                <span className="absolute bottom-2 left-2 right-2 text-[10px] font-semibold uppercase tracking-wider text-white text-left">
+                  {img.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Quiz Module Wrapper using Double-Bezel Architecture */}

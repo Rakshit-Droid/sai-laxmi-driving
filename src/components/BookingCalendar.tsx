@@ -95,15 +95,34 @@ export default function BookingCalendar() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Information Column (Left) */}
           <div className="lg:col-span-5 animate-fade-up">
+            <div className="relative rounded-3xl overflow-hidden border border-amber-700/10 shadow-sm mb-8 h-56">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80"
+                alt="Instructor coaching a learner on Indian roads"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="inline-block text-[9px] uppercase tracking-[0.25em] font-bold text-amber-300 mb-1">
+                  Bengaluru · Mumbai · Hyderabad
+                </span>
+                <p className="font-serif text-base font-semibold leading-tight">
+                  Certified instructors. Real Indian roads.
+                </p>
+              </div>
+            </div>
+
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4">
               <CalendarIcon className="w-3.5 h-3.5 text-amber-600" />
               <span>Realtime Scheduler</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight mb-6">
-              Lock in your first session in seconds.
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-stone-900 leading-tight mb-6">
+              Lock in your first<br />session in seconds.
             </h2>
-            <p className="text-base text-slate-500 leading-relaxed mb-8">
-              Select your preferred day, hour, and car preference. Our digital scheduling engine syncs directly with available vehicles and certified safety instructors in your area.
+            <p className="text-base text-stone-600 leading-relaxed mb-8">
+              Select your preferred day, hour, and car preference. Our digital scheduling engine syncs directly with available vehicles and certified RTO-trained instructors in your area.
             </p>
 
             {/* Structured details checklist */}

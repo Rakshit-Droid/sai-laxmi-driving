@@ -153,6 +153,36 @@ const photos: Photo[] = [
     caption: "Welcome desk at our Bengaluru head campus.",
     category: "campus",
   },
+  {
+    id: 17,
+    src: "https://images.unsplash.com/photo-1542228262-3d663b306a53?auto=format&fit=crop&w=900&q=80",
+    title: "First Licence Held High",
+    caption: "Arjun moments after receiving his LMV licence.",
+    category: "students",
+  },
+  {
+    id: 18,
+    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
+    title: "Sedan Lineup",
+    caption: "Our sedan fleet maintained for advanced practice.",
+    category: "fleet",
+    span: "wide",
+  },
+  {
+    id: 19,
+    src: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80",
+    title: "Indian Traffic Signs",
+    caption: "Sign-recognition module — core to RTO theory prep.",
+    category: "rto",
+  },
+  {
+    id: 20,
+    src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    title: "Digital Theory Lab",
+    caption: "Tablet-based mock RTO test stations in our campus.",
+    category: "campus",
+    span: "tall",
+  },
 ];
 
 const categoryMeta: { key: Category; label: string; icon: typeof Car }[] = [
@@ -199,7 +229,7 @@ export default function GalleryPage() {
             </p>
 
             <div className="ornamental-divider text-[10px] uppercase tracking-[0.3em] font-semibold text-amber-700 max-w-md mx-auto">
-              <span>16 Featured Photos</span>
+              <span>{photos.length} Featured Photos</span>
             </div>
           </div>
         </section>
