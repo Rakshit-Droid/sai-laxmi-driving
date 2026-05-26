@@ -109,56 +109,63 @@ export default function Home() {
                     {/* Badge */}
                     <div className="flex justify-between items-center mb-6">
                       <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-stone-400">
-                        Learner Progress Card
+                        Academy Credentials
                       </span>
                       <div className="w-2.5 h-2.5 rounded-full bg-amber-600 animate-ping"></div>
                     </div>
 
-                    {/* Student Info */}
-                    <h3 className="font-serif text-xl font-semibold text-stone-900 mb-1">
-                      Arjun Sharma
+                    {/* Academy Info */}
+                    <h3 className="font-serif text-xl font-semibold text-stone-900 mb-1 leading-tight">
+                      Sai Laxmi Motor Driving School
                     </h3>
-                    <p className="text-xs text-stone-400 mb-6">
-                      Enrollment: SLDA-9824-A
+                    <p className="text-xs text-stone-500 mb-6 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3 h-3 text-amber-600" />
+                      Govt. RTO Approved Institute
                     </p>
 
                     {/* Stats List inside Card */}
                     <div className="space-y-4">
                       <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                        <span className="text-xs text-stone-500">Instructor:</span>
+                        <span className="text-xs text-stone-500">Established:</span>
                         <span className="text-xs font-bold text-stone-800">
-                          Instr. Rajesh Kumar
+                          15+ Years
                         </span>
                       </div>
                       <div className="flex items-center justify-between border-b border-stone-100 pb-3">
                         <span className="text-xs text-stone-500">
-                          Hours Practiced:
+                          Training Fleet:
                         </span>
                         <span className="text-xs font-bold text-stone-800">
-                          14 / 20 Hours
+                          12+ Vehicles
                         </span>
                       </div>
                       <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                        <span className="text-xs text-stone-500">
-                          Licence Category:
-                        </span>
+                        <span className="text-xs text-stone-500">Location:</span>
                         <span className="text-xs font-bold text-stone-800">
-                          LMV (Automatic)
+                          Hayathnagar, Hyd.
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between border-b border-stone-100 pb-3">
+                        <span className="text-xs text-stone-500">Languages:</span>
+                        <span className="text-xs font-bold text-stone-800">
+                          Telugu · Hindi · English
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Progress Bar inside Card */}
+                  {/* Progress Bar inside Card — Pass Rate */}
                   <div className="mt-8">
                     <div className="flex justify-between items-baseline text-xs mb-2">
                       <span className="text-stone-400 font-medium">
-                        RTO Readiness
+                        RTO Test Pass Rate
                       </span>
-                      <span className="font-bold text-amber-600">85% Complete</span>
+                      <span className="font-bold text-amber-600">
+                        98.7%
+                      </span>
                     </div>
                     <div className="w-full h-2 bg-stone-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-amber-500 to-amber-700 rounded-full w-[85%]"></div>
+                      <div className="h-full bg-gradient-to-r from-amber-500 to-amber-700 rounded-full w-[98.7%]"></div>
                     </div>
                   </div>
                 </div>
