@@ -599,6 +599,12 @@ export default function Home() {
                   src="/logo.png"
                   alt="Sai Lakshmi Driving School"
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    el.style.display = "none";
+                    el.parentElement!.innerHTML =
+                      '<span class="font-serif font-bold text-amber-400 text-sm tracking-tighter leading-none">SL</span>';
+                  }}
                 />
               </div>
               <span className="font-serif font-semibold text-white text-base tracking-tight">

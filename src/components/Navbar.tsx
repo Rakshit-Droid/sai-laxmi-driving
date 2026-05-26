@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Shield, Menu, X, ArrowRight, MapPin } from "lucide-react";
+import { Menu, X, ArrowRight, MapPin } from "lucide-react";
 import LocationDialog from "./LocationDialog";
 
 export default function Navbar() {
@@ -45,9 +45,11 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-3 group shrink-0"
         >
-          <div className="w-11 h-11 rounded-full bg-stone-900 flex items-center justify-center overflow-hidden shadow-[0_4px_14px_rgba(28,25,23,0.25)] group-hover:scale-105 premium-transition shrink-0 ring-1 ring-amber-600/30">
+          <div className="w-11 h-11 rounded-full bg-stone-900 flex items-center justify-center overflow-hidden shadow-[0_4px_14px_rgba(28,25,23,0.25)] group-hover:scale-105 premium-transition shrink-0 ring-1 ring-amber-600/30 relative">
             {logoFailed ? (
-              <Shield className="w-5 h-5 text-amber-500 stroke-[2]" />
+              <span className="font-serif font-bold text-amber-400 text-base tracking-tighter leading-none select-none">
+                SL
+              </span>
             ) : (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img

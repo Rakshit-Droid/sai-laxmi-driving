@@ -11,181 +11,200 @@ import {
   GraduationCap,
   ShieldCheck,
   Sparkles,
+  Award,
+  CloudRain,
+  Moon,
+  Octagon,
+  Users,
+  KeyRound,
+  ParkingSquare,
+  Cone,
+  ClipboardCheck,
+  Trophy,
+  Coffee,
+  Building2,
+  Tablet,
+  Sun,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-type Category =
-  | "all"
-  | "fleet"
-  | "roads"
-  | "rto"
-  | "students"
-  | "campus";
+type Category = "all" | "fleet" | "roads" | "rto" | "students" | "campus";
 
 interface Photo {
   id: number;
-  src: string;
   title: string;
   caption: string;
   category: Exclude<Category, "all">;
+  icon: LucideIcon;
   span?: "tall" | "wide" | "regular";
 }
 
-/**
- * Stock photography sourced from Unsplash (India-related search corpus).
- * For production launch, replace with original photos of the actual academy.
- */
 const photos: Photo[] = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1605302845526-c2c5f1c6e0e7?auto=format&fit=crop&w=1200&q=80",
     title: "Hyderabad City Drive",
     caption: "Learner navigating Outer Ring Road peak-hour traffic.",
     category: "roads",
+    icon: MapPin,
     span: "wide",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1597149961419-3cf4a45b14db?auto=format&fit=crop&w=900&q=80",
     title: "Auto-Rickshaw Awareness",
     caption: "Training around three-wheelers on Indian streets.",
     category: "roads",
+    icon: Users,
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80",
-    title: "Our Training Hatchback",
-    caption: "Dual-control Maruti Swift fitted for new learners.",
+    title: "Beginner Hatchback",
+    caption: "Dual-control Maruti Alto fitted for new learners.",
     category: "fleet",
+    icon: Car,
     span: "tall",
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1581540222194-0def2dda95b8?auto=format&fit=crop&w=900&q=80",
-    title: "Sedan Highway Practice",
+    title: "Sedan Practice Sessions",
     caption: "Honda City lessons for highway entry & overtaking.",
     category: "fleet",
+    icon: Car,
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1542228262-3d663b306a53?auto=format&fit=crop&w=900&q=80",
     title: "RTO Test Day",
     caption: "A graduate at the regional RTO test ground.",
     category: "rto",
+    icon: ClipboardCheck,
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1517941875044-cd5b53524b87?auto=format&fit=crop&w=900&q=80",
-    title: "Indian National Highway",
-    caption: "NH-48 long-distance driving session.",
+    title: "National Highway Drives",
+    caption: "Long-distance highway driving sessions on NH-65.",
     category: "roads",
+    icon: Sun,
     span: "tall",
   },
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
-    title: "Manual Transmission Class",
-    caption: "Stick-shift training in our manual sedan.",
+    title: "Manual Transmission",
+    caption: "Stick-shift training in our manual hatchback fleet.",
     category: "fleet",
+    icon: KeyRound,
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1583416750470-9608b9caa0ba?auto=format&fit=crop&w=900&q=80",
     title: "Licence Day Joy",
-    caption: "Priya receiving her LMV licence — first attempt pass.",
+    caption: "First-attempt RTO pass — proud graduates of our academy.",
     category: "students",
+    icon: Trophy,
     span: "wide",
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=900&q=80",
     title: "Theory Classroom",
-    caption: "Indian traffic-rule lecture inside our academy.",
+    caption: "Indian RTO traffic-rule lecture in our academy.",
     category: "campus",
+    icon: GraduationCap,
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80",
     title: "Monsoon Driving Module",
-    caption: "Hydroplaning & wet-grip training in the rains.",
+    caption: "Hydroplaning & wet-grip training in the Hyderabad rains.",
     category: "roads",
+    icon: CloudRain,
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1605164598696-25ac8e9c8ce5?auto=format&fit=crop&w=900&q=80",
     title: "Reverse Parking Drill",
     caption: "Practice in our parking-skill obstacle course.",
     category: "campus",
+    icon: ParkingSquare,
     span: "tall",
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=900&q=80",
     title: "Night Driving Cert.",
-    caption: "Headlight handling and glare reduction practice.",
+    caption: "Headlight discipline and glare reduction practice.",
     category: "roads",
+    icon: Moon,
   },
   {
     id: 13,
-    src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
-    title: "Highway Fleet",
-    caption: "Our certified instructor cars lined up for class.",
+    title: "Training Fleet Lineup",
+    caption: "Our certified instructor cars ready for class.",
     category: "fleet",
+    icon: Car,
     span: "wide",
   },
   {
     id: 14,
-    src: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80",
     title: "Mock RTO Briefing",
     caption: "Pre-test walkthrough of road-test patterns.",
     category: "rto",
+    icon: ShieldCheck,
   },
   {
     id: 15,
-    src: "https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=900&q=80",
-    title: "Senior Refresher Group",
-    caption: "Refresher batch graduates after their final session.",
+    title: "Senior Refresher Batch",
+    caption: "Adult & senior refresher graduates after final session.",
     category: "students",
+    icon: Award,
   },
   {
     id: 16,
-    src: "https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=900&q=80",
     title: "Academy Reception",
     caption: "Welcome desk at our Hayathnagar head campus.",
     category: "campus",
+    icon: Coffee,
   },
   {
     id: 17,
-    src: "https://images.unsplash.com/photo-1542228262-3d663b306a53?auto=format&fit=crop&w=900&q=80",
     title: "First Licence Held High",
     caption: "Arjun moments after receiving his LMV licence.",
     category: "students",
+    icon: Trophy,
   },
   {
     id: 18,
-    src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
-    title: "Sedan Lineup",
-    caption: "Our sedan fleet maintained for advanced practice.",
+    title: "WagonR for Refreshers",
+    caption: "Tall-boy cabin for adult & senior refresher learners.",
     category: "fleet",
+    icon: Car,
     span: "wide",
   },
   {
     id: 19,
-    src: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80",
     title: "Indian Traffic Signs",
     caption: "Sign-recognition module — core to RTO theory prep.",
     category: "rto",
+    icon: Octagon,
   },
   {
     id: 20,
-    src: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
     title: "Digital Theory Lab",
-    caption: "Tablet-based mock RTO test stations in our campus.",
+    caption: "Tablet-based mock RTO test stations on campus.",
     category: "campus",
+    icon: Tablet,
     span: "tall",
+  },
+  {
+    id: 21,
+    title: "Cone Obstacle Course",
+    caption: "Low-speed manoeuvring drills for fine control.",
+    category: "campus",
+    icon: Cone,
+  },
+  {
+    id: 22,
+    title: "Hayathnagar Campus",
+    caption: "Our main facility on Kuntloor Road.",
+    category: "campus",
+    icon: Building2,
   },
 ];
 
-const categoryMeta: { key: Category; label: string; icon: typeof Car }[] = [
+const categoryMeta: { key: Category; label: string; icon: LucideIcon }[] = [
   { key: "all", label: "All Photos", icon: Sparkles },
   { key: "fleet", label: "Training Fleet", icon: Car },
   { key: "roads", label: "Indian Roads", icon: MapPin },
@@ -193,6 +212,38 @@ const categoryMeta: { key: Category; label: string; icon: typeof Car }[] = [
   { key: "students", label: "Our Students", icon: GraduationCap },
   { key: "campus", label: "Campus Life", icon: Camera },
 ];
+
+/** Category-specific colour palettes for the illustrated tiles */
+const categoryStyle: Record<
+  Exclude<Category, "all">,
+  { gradient: string; iconClass: string; tag: string }
+> = {
+  fleet: {
+    gradient: "from-amber-200 via-amber-300/70 to-amber-400/60",
+    iconClass: "text-amber-900",
+    tag: "text-amber-900/90",
+  },
+  roads: {
+    gradient: "from-emerald-200 via-emerald-300/70 to-emerald-400/60",
+    iconClass: "text-emerald-900",
+    tag: "text-emerald-900/90",
+  },
+  rto: {
+    gradient: "from-rose-200 via-rose-300/70 to-rose-400/60",
+    iconClass: "text-rose-900",
+    tag: "text-rose-900/90",
+  },
+  students: {
+    gradient: "from-sky-200 via-sky-300/70 to-sky-400/60",
+    iconClass: "text-sky-900",
+    tag: "text-sky-900/90",
+  },
+  campus: {
+    gradient: "from-violet-200 via-violet-300/70 to-violet-400/60",
+    iconClass: "text-violet-900",
+    tag: "text-violet-900/90",
+  },
+};
 
 export default function GalleryPage() {
   const [active, setActive] = useState<Category>("all");
@@ -229,7 +280,7 @@ export default function GalleryPage() {
             </p>
 
             <div className="ornamental-divider text-[10px] uppercase tracking-[0.3em] font-semibold text-amber-700 max-w-md mx-auto">
-              <span>{photos.length} Featured Photos</span>
+              <span>{photos.length} Featured Highlights</span>
             </div>
           </div>
         </section>
@@ -259,7 +310,7 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* PHOTO GRID */}
+        {/* TILE GRID — Illustrated cards (icon + gradient + caption) */}
         <section className="pb-24">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-5">
@@ -270,39 +321,44 @@ export default function GalleryPage() {
                     : photo.span === "wide"
                     ? "sm:col-span-2"
                     : "";
+                const style = categoryStyle[photo.category];
+                const Icon = photo.icon;
                 return (
                   <figure
                     key={photo.id}
-                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 bg-stone-100 shadow-sm hover:shadow-xl premium-transition animate-fade-up ${spanClass}`}
-                    style={{ animationDelay: `${idx * 60}ms` }}
+                    className={`group relative overflow-hidden rounded-3xl border border-amber-700/10 shadow-sm hover:shadow-xl premium-transition animate-fade-up bg-gradient-to-br ${style.gradient} ${spanClass}`}
+                    style={{ animationDelay: `${idx * 40}ms` }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={photo.src}
-                      alt={photo.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/10 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    {/* Decorative orbital rings */}
+                    <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full border-2 border-white/25 pointer-events-none"></div>
+                    <div className="absolute -bottom-20 -left-12 w-40 h-40 rounded-full border border-white/20 pointer-events-none"></div>
+                    <div className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-white/40 pointer-events-none"></div>
 
-                    {/* Caption */}
-                    <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
-                      <span className="inline-block text-[9px] uppercase tracking-[0.25em] font-semibold text-amber-300 mb-1.5">
+                    {/* Centred big icon */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <Icon
+                        className={`w-20 h-20 ${style.iconClass} stroke-[1.25] opacity-90 group-hover:scale-110 group-hover:-translate-y-1 premium-transition`}
+                      />
+                    </div>
+
+                    {/* Category chip top-left */}
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className={`inline-block text-[9px] uppercase tracking-[0.25em] font-bold px-2.5 py-1 rounded-full bg-white/70 backdrop-blur-sm ${style.tag}`}
+                      >
                         {photo.category}
                       </span>
-                      <h3 className="font-serif text-lg md:text-xl font-semibold leading-tight mb-1">
+                    </div>
+
+                    {/* Caption bottom */}
+                    <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-stone-950/80 via-stone-950/30 to-transparent">
+                      <h3 className="font-serif text-lg md:text-xl font-semibold text-white leading-tight mb-1">
                         {photo.title}
                       </h3>
                       <p className="text-xs text-white/80 leading-relaxed max-w-[42ch]">
                         {photo.caption}
                       </p>
                     </figcaption>
-
-                    {/* Corner ornament */}
-                    <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <Camera className="w-3.5 h-3.5 text-white" />
-                    </div>
                   </figure>
                 );
               })}
@@ -310,7 +366,7 @@ export default function GalleryPage() {
 
             {filtered.length === 0 && (
               <div className="text-center py-20 text-stone-500 text-sm">
-                No photos found in this category yet.
+                No items found in this category yet.
               </div>
             )}
           </div>
@@ -355,8 +411,8 @@ export default function GalleryPage() {
       <footer className="bg-stone-900 text-stone-500 py-10 text-center text-xs relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700"></div>
         <p>
-          &copy; {new Date().getFullYear()} Sai Lakshmi Driving School.
-          All rights reserved.
+          &copy; {new Date().getFullYear()} Sai Lakshmi Driving School. All
+          rights reserved.
         </p>
       </footer>
     </div>
