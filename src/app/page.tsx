@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import PackageSelector from "@/components/PackageSelector";
 import BookingCalendar from "@/components/BookingCalendar";
 import TheoryTest from "@/components/TheoryTest";
+import LocationDialog from "@/components/LocationDialog";
 import {
   ArrowRight,
   ShieldCheck,
@@ -14,9 +16,11 @@ import {
   Users,
   ThumbsUp,
   Star,
+  MapPin,
 } from "lucide-react";
 
 export default function Home() {
+  const [locationOpen, setLocationOpen] = useState(false);
   return (
     <div className="min-h-[100dvh] bg-stone-50 flex flex-col relative film-grain">
       {/* Decorative Blur Background Orbs */}
@@ -235,22 +239,22 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80",
-                  title: "Maruti Swift",
-                  badge: "Automatic Hatchback",
-                  desc: "Best for first-time learners. Easy clutch-free control with dual-pedal safety.",
+                  src: "https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=900&q=80",
+                  title: "Maruti Suzuki Alto",
+                  badge: "Beginner Hatchback",
+                  desc: "Most popular learner car in India. Lightweight, easy clutch, perfect first-timer ride.",
                 },
                 {
-                  src: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
-                  title: "Honda City",
-                  badge: "Manual Sedan",
-                  desc: "Stick-shift mastery. Highway entry, gear sequencing and overtaking confidence.",
+                  src: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80",
+                  title: "Maruti Suzuki Swift",
+                  badge: "Manual Hatchback",
+                  desc: "Crowd-favourite for stick-shift mastery. Gear sequencing & city navigation focus.",
                 },
                 {
-                  src: "https://images.unsplash.com/photo-1581540222194-0def2dda95b8?auto=format&fit=crop&w=900&q=80",
-                  title: "Hyundai Verna",
-                  badge: "Refresher Sedan",
-                  desc: "Spacious cabin tuned for adult and senior refresher students.",
+                  src: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=900&q=80",
+                  title: "Maruti Suzuki WagonR",
+                  badge: "Refresher / Senior",
+                  desc: "Tall-boy cabin with excellent visibility — ideal for adult and senior refresher learners.",
                 },
               ].map((car, idx) => (
                 <div
@@ -451,11 +455,18 @@ export default function Home() {
                 Hotline:{" "}
                 <span className="text-white font-medium">+91 98765 43210</span>
               </p>
-              <p>
-                Address:{" "}
-                <span className="text-white font-medium">
-                  Kuntloor Road, Hayathnagar, Hyderabad – 501505
-                </span>
+              <p className="flex items-start gap-1.5">
+                <span>Address:</span>
+                <button
+                  type="button"
+                  onClick={() => setLocationOpen(true)}
+                  className="text-left text-white font-medium hover:text-amber-300 transition-colors inline-flex items-start gap-1 group"
+                >
+                  <span className="underline underline-offset-4 decoration-amber-700/40 group-hover:decoration-amber-400">
+                    Kuntloor Road, Hayathnagar, Hyderabad – 501505
+                  </span>
+                  <MapPin className="w-3 h-3 mt-0.5 shrink-0 text-amber-400" />
+                </button>
               </p>
               <p>
                 Email:{" "}
@@ -467,6 +478,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <LocationDialog
+        open={locationOpen}
+        onClose={() => setLocationOpen(false)}
+      />
     </div>
   );
 }

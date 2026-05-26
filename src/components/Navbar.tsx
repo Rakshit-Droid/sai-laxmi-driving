@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Shield, Menu, X, ArrowRight } from "lucide-react";
+import { Shield, Menu, X, ArrowRight, MapPin } from "lucide-react";
+import LocationDialog from "./LocationDialog";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [locationOpen, setLocationOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,8 +61,17 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setLocationOpen(true)}
+            className="group flex items-center gap-2 px-4 py-2.5 bg-white border border-amber-700/20 hover:border-amber-700/50 hover:bg-amber-50/60 text-stone-800 rounded-full text-sm font-medium premium-transition active:scale-[0.98]"
+            aria-label="View academy location on Google Maps"
+          >
+            <MapPin className="w-4 h-4 text-amber-700" />
+            <span>Visit Us</span>
+          </button>
           <Link
             href="/#scheduler"
             className="group relative flex items-center gap-2 px-5 py-2.5 bg-stone-900 text-white rounded-full text-sm font-medium shadow-[0_10px_20px_-5px_rgba(28,25,23,0.18)] hover:bg-stone-800 hover:shadow-[0_10px_25px_-5px_rgba(28,25,23,0.3)] active:scale-[0.98] premium-transition"
@@ -101,10 +112,21 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setLocationOpen(true);
+              }}
+              className="mt-2 mx-auto inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/15 premium-transition"
+            >
+              <MapPin className="w-4 h-4" />
+              <span>Visit Our Academy</span>
+            </button>
             <Link
               href="/#scheduler"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 mx-auto w-max group flex items-center gap-2 px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-full text-base font-medium shadow-lg hover:shadow-xl active:scale-[0.98] premium-transition"
+              className="mt-2 mx-auto w-max group flex items-center gap-2 px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-full text-base font-medium shadow-lg hover:shadow-xl active:scale-[0.98] premium-transition"
             >
               <span>Book Free Trial</span>
               <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-1 premium-transition">
@@ -114,6 +136,11 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <LocationDialog
+        open={locationOpen}
+        onClose={() => setLocationOpen(false)}
+      />
     </header>
   );
 }
