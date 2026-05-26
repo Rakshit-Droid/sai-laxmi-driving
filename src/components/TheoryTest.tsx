@@ -1,7 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { BookOpen, Check, X, ArrowRight, RotateCcw, Award, CheckCircle2, AlertTriangle } from "lucide-react";
+import {
+  BookOpen,
+  Check,
+  X,
+  ArrowRight,
+  RotateCcw,
+  Award,
+  CheckCircle2,
+  AlertTriangle,
+  Octagon,
+  Moon,
+  CloudRain,
+} from "lucide-react";
 
 interface Question {
   id: number;
@@ -132,37 +144,49 @@ export default function TheoryTest() {
             Try our mini-quiz modeled after current RTO theory exams. Spot your weaknesses and see explanations instantly.
           </p>
 
-          {/* Decorative image strip — Indian traffic signs / road */}
+          {/* Topic tiles — illustrated, on-label, no stock-photo guesswork */}
           <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
             {[
               {
-                src: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?auto=format&fit=crop&w=400&q=80",
                 label: "Road Signs",
+                Icon: Octagon,
+                gradient: "from-rose-700 via-red-600 to-amber-700",
+                topic: "Indian RTO sign chart",
+                stroke: "stroke-[1.5]",
               },
               {
-                src: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=400&q=80",
                 label: "Night Driving",
+                Icon: Moon,
+                gradient: "from-stone-900 via-indigo-950 to-stone-800",
+                topic: "Headlight discipline",
+                stroke: "fill-amber-200 stroke-amber-200",
               },
               {
-                src: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=400&q=80",
                 label: "Monsoon Rules",
+                Icon: CloudRain,
+                gradient: "from-sky-800 via-slate-700 to-stone-800",
+                topic: "Wet road safety",
+                stroke: "stroke-[1.5]",
               },
-            ].map((img) => (
+            ].map(({ label, Icon, gradient, topic, stroke }) => (
               <div
-                key={img.label}
-                className="relative rounded-2xl overflow-hidden h-24 border border-amber-700/10"
+                key={label}
+                className={`relative rounded-2xl overflow-hidden h-28 border border-amber-700/10 bg-gradient-to-br ${gradient} flex flex-col justify-between p-4 text-left`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={img.src}
-                  alt={img.label}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent"></div>
-                <span className="absolute bottom-2 left-2 right-2 text-[10px] font-semibold uppercase tracking-wider text-white text-left">
-                  {img.label}
-                </span>
+                {/* Decorative concentric ring for visual depth */}
+                <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full border border-white/15 pointer-events-none"></div>
+                <div className="absolute -bottom-10 -left-6 w-20 h-20 rounded-full border border-white/10 pointer-events-none"></div>
+
+                <Icon className={`w-7 h-7 text-white ${stroke}`} />
+
+                <div>
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                    {label}
+                  </span>
+                  <span className="block text-[9px] text-white/70 mt-0.5">
+                    {topic}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
