@@ -38,8 +38,8 @@ const photos: Photo[] = [
   {
     id: 1,
     src: "https://images.unsplash.com/photo-1605302845526-c2c5f1c6e0e7?auto=format&fit=crop&w=1200&q=80",
-    title: "Bengaluru City Drive",
-    caption: "Learner navigating MG Road peak-hour traffic.",
+    title: "Hyderabad City Drive",
+    caption: "Learner navigating Outer Ring Road peak-hour traffic.",
     category: "roads",
     span: "wide",
   },
@@ -150,7 +150,7 @@ const photos: Photo[] = [
     id: 16,
     src: "https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=900&q=80",
     title: "Academy Reception",
-    caption: "Welcome desk at our Bengaluru head campus.",
+    caption: "Welcome desk at our Hayathnagar head campus.",
     category: "campus",
   },
   {
@@ -333,7 +333,7 @@ export default function GalleryPage() {
                   </h2>
                   <p className="text-sm text-stone-600 max-w-[50ch] mx-auto mb-8">
                     Join thousands of confident drivers across India who began
-                    their journey at Sai Lakshmi Driving Academy.
+                    their journey at Sai Laxmi Motor Driving School.
                   </p>
                   <Link
                     href="/#scheduler"
@@ -355,8 +355,8 @@ export default function GalleryPage() {
       <footer className="bg-stone-900 text-stone-500 py-10 text-center text-xs relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700"></div>
         <p>
-          &copy; {new Date().getFullYear()} Sai Lakshmi Driving Academy. All
-          rights reserved.
+          &copy; {new Date().getFullYear()} Sai Laxmi Motor Driving School.
+          All rights reserved.
         </p>
       </footer>
     </div>

@@ -306,8 +306,9 @@ export default function Home() {
                 has to say.
               </h2>
               <p className="text-base text-stone-500 leading-relaxed">
-                Real experiences from learners across Bengaluru, Mumbai and
-                Hyderabad who earned their licence with us.
+                Real experiences from learners across Hayathnagar, LB Nagar,
+                Dilsukhnagar and greater Hyderabad who earned their licence
+                with us.
               </p>
             </div>
 
@@ -318,7 +319,7 @@ export default function Home() {
                   quote:
                     "I was incredibly nervous about city traffic and signal crossings as an adult learner. The instructor was exceptionally patient and used the dual-pedals to guide me safely until I gained full confidence.",
                   name: "Priya Menon",
-                  role: "Adult Learner Program · Bengaluru",
+                  role: "Adult Learner Program · Hayathnagar",
                   avatar:
                     "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80",
                   offset: "",
@@ -327,7 +328,7 @@ export default function Home() {
                   quote:
                     "My son completed the 20-hour package. The parent progress reports gave us complete peace of mind. He cleared his RTO driving test on the very first attempt!",
                   name: "Suresh Patel",
-                  role: "Parent of Beginner Student · Mumbai",
+                  role: "Parent of Beginner Student · LB Nagar",
                   avatar:
                     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80",
                   offset: "md:translate-y-6",
@@ -336,7 +337,7 @@ export default function Home() {
                   quote:
                     "After not driving for six years, I needed a brush-up package before my licence renewal. The traffic navigation coaching was excellent and refreshed all my road awareness habits.",
                   name: "Vikram Nair",
-                  role: "Refresher Course Graduate · Hyderabad",
+                  role: "Refresher Course Graduate · Dilsukhnagar",
                   avatar:
                     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&h=200&q=80",
                   offset: "",
@@ -393,7 +394,7 @@ export default function Home() {
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="font-serif font-semibold text-white text-base tracking-tight">
-                Sai Lakshmi Driving
+                Sai Laxmi Motor Driving School
               </span>
             </div>
             <p className="text-xs text-stone-500 leading-relaxed max-w-[35ch] mb-6">
@@ -401,8 +402,8 @@ export default function Home() {
               confidence, defensive technique, and RTO test readiness.
             </p>
             <span className="text-[10px] text-stone-600 block">
-              &copy; {new Date().getFullYear()} Sai Lakshmi Driving Academy.
-              All rights reserved.
+              &copy; {new Date().getFullYear()} Sai Laxmi Motor Driving
+              School. All rights reserved.
             </span>
           </div>
 
@@ -453,13 +454,13 @@ export default function Home() {
               <p>
                 Address:{" "}
                 <span className="text-white font-medium">
-                  12, MG Road, Near RTO Office, Bengaluru
+                  Kuntloor Road, Hayathnagar, Hyderabad – 501505
                 </span>
               </p>
               <p>
                 Email:{" "}
                 <span className="text-white font-medium">
-                  support@sailakshmidriving.com
+                  contact@sailaxmimotor.in
                 </span>
               </p>
             </div>

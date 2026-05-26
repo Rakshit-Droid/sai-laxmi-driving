@@ -106,10 +106,10 @@ export default function BookingCalendar() {
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-950/20 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="inline-block text-[9px] uppercase tracking-[0.25em] font-bold text-amber-300 mb-1">
-                  Bengaluru · Mumbai · Hyderabad
+                  Hayathnagar · Hyderabad · Telangana
                 </span>
                 <p className="font-serif text-base font-semibold leading-tight">
-                  Certified instructors. Real Indian roads.
+                  Certified instructors. Real Hyderabad roads.
                 </p>
               </div>
             </div>

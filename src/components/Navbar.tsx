@@ -39,9 +39,9 @@ export default function Navbar() {
             <Shield className="w-5 h-5 stroke-[2]" />
           </div>
           <span className="font-serif font-semibold text-stone-900 tracking-tight text-lg group-hover:text-amber-700 premium-transition">
-            Sai Lakshmi{" "}
+            Sai Laxmi{" "}
             <span className="font-light text-stone-500 font-sans">
-              Driving
+              Motor Driving School
             </span>
           </span>
         </Link>

@@ -19,9 +19,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Sai Lakshmi Driving Academy | Premier RTO Driving School in Bengaluru",
+  title: "Sai Laxmi Motor Driving School | Hayathnagar, Hyderabad",
   description:
-    "India's trusted driving school. Expert RTO-certified instructors, dual-control training cars, mock RTO tests, and refresher courses for beginners, adults and seniors.",
+    "Trusted driving school on Kuntloor Road, Hayathnagar, Hyderabad. Expert RTO-certified instructors, dual-control training cars, mock RTO tests, and refresher courses for beginners, adults and seniors.",
 };
 
 export default function RootLayout({
